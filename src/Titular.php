@@ -2,11 +2,11 @@
 
 class Titular 
 {
-    private string $cpf;
-    private string $nome;
+    private $cpf;
+    private $nome;
 
 
-    public function __construct(string $cpf, string $nome)
+    public function __construct(Cpf $cpf, string $nome)
     {
         $this->cpf = $cpf;
         $this->nome = $nome;
@@ -15,7 +15,7 @@ class Titular
 
     public function recuperaCpf() : string
     {
-        return $this->cpf;
+        return $this->cpf->recuperaNumero();
     }
 
     public function recuperaNome() : string 
@@ -26,7 +26,7 @@ class Titular
     private function validaNomeTitular(string $nomeTitular)
     {
         if (strlen($nomeTitular) < 3) {
-            echo "O Campo Nome precisa ter pelo menos 5 caracteres" . PHP_EOL;
+            echo "O Campo Nome precisa ter pelo menos 3 caracteres" . PHP_EOL;
             exit();
         } 
     }

@@ -2,8 +2,8 @@
 
 class Conta 
 {
-    private  $titular;
-    private float $saldo;
+    private $titular;
+    private $saldo;
     private static $numeroContas = 0;
 
     public function __construct(Titular $titular)
