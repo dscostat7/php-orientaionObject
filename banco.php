@@ -10,6 +10,7 @@ echo $primeiraConta->recuperaNome() . PHP_EOL;
 echo $primeiraConta->recuperaCpf() . PHP_EOL;
 echo '$' . $primeiraConta->recuperaSaldo() . PHP_EOL;
 
+new Conta("uashua", "711.905.469-49");
 
 $segundaConta = new Conta("Ana", "123.456.789-10");
 echo $segundaConta->recuperaNome() . PHP_EOL;

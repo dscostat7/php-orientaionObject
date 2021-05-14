@@ -17,6 +17,11 @@ class Conta
         self::$numeroContas++;      // Atributo da propria Classe;
     }
 
+    public function __destruct()
+    {
+        self::$numeroContas--;
+    }
+
     public function sacar(float $valorSacar)
     {
         if($valorSacar > $this->saldo) {
