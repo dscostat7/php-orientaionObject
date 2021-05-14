@@ -2,9 +2,16 @@
 
 class Conta 
 {
-    public string $cpfTitular;
-    public string $nomeTitular;
-    private float $saldo = 0;
+    private string $cpfTitular;
+    private string $nomeTitular;
+    private float $saldo;
+
+    public function __construct(string $nomeTitular, string $cpfTitular)
+    {
+        $this->nomeTitular = $nomeTitular;
+        $this->cpfTitular = $cpfTitular;
+        $this->saldo = 0;
+    }
 
     public function sacar(float $valorSacar)
     {
@@ -16,7 +23,7 @@ class Conta
     }
 
 
-    public function depositar(float $valorDeposito)
+    public function depositar(float $valorDeposito) 
     {
         if($valorDeposito < 0) {
             echo "Você não pode depositar um valor negativo!";
@@ -34,5 +41,20 @@ class Conta
         $this->sacar($valorTransf);
         $contaDestino->depositar($valorTransf);  
         echo "Transferência realizada com sucesso!"; 
+    }
+
+    public function recuperaSaldo()
+    {
+        return $this->saldo;
+    }
+
+   public function recuperaCpf()
+    {
+        return $this->cpfTitular;
+    }
+
+    public function recuperaNome()
+    {
+        return $this->nomeTitular;
     }
 }
