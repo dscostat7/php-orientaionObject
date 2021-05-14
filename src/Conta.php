@@ -5,12 +5,16 @@ class Conta
     private string $cpfTitular;
     private string $nomeTitular;
     private float $saldo;
+    private static $numeroContas = 0;
 
     public function __construct(string $nomeTitular, string $cpfTitular)
     {
         $this->nomeTitular = $nomeTitular;
+        $this->validaContaTitular($nomeTitular);
         $this->cpfTitular = $cpfTitular;
         $this->saldo = 0;
+
+        self::$numeroContas++;      // Atributo da propria Classe;
     }
 
     public function sacar(float $valorSacar)
@@ -56,5 +60,18 @@ class Conta
     public function recuperaNome()
     {
         return $this->nomeTitular;
+    }
+
+    private function validaContaTitular(string $nomeTitular)
+    {
+        if (strlen($nomeTitular) < 3) {
+            echo "O Campo Nome precisa ter pelo menos 5 caracteres" . PHP_EOL;
+            exit();
+        } 
+    }
+
+    public static function numeroDeContas(): int
+    {
+        return self::$numeroContas;
     }
 }
